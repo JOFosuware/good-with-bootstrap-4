@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+    <title>Osee Enterprise Application</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/pos.css">
+    <script>
+        
+    </script>
+</head>
+<body>
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+    <span class="btn btn-outline-light ml-2">Osee Enterprise Application</span>
+    <ul class="nav flex-column nav-pills menu-list" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle py-3" id="v-pills-profile-tab" data-toggle="dropdown" href="#logOut-section" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="v-pills-profile" aria-selected="false">
+                      <div id="logOut" class="btn btn-outline-light">Log Out</div>
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" data-toggle="pill" id="oneDevice" href="oneDevice">This Device</a>
+                    <a class="dropdown-item" data-toggle="pill" id="allDevices"  href="allDevices">All Devices</a>
+                  </div>
+        </li>
+    </ul>
+    </nav>
+
+<!-- Side menu-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 side-menu">
+            <img class="img-responsive img-thumbnail d-inline align-top" id="userImage" src="" width="180" height="150" alt="">
+            <p class="display-5 text-light my-3" id="userId">Ofosuware Joseph</p>
+            {{!-- <small class="ml-2 text-light">-Osiem</small>
+            <small class="ml-2 text-light">-East Akim</small> --}}
+            
+            <ul class="nav flex-column nav-pills menu-list" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <li class="nav-item">
+                    <a class="nav-link active py-3" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle py-3" id="v-pills-profile-tab" data-toggle="dropdown" href="#product-section" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="v-pills-profile" aria-selected="false">Product</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" data-toggle="pill"  href="#v-pills-newProduct">New Product</a>
+                    <a class="dropdown-item" data-toggle="pill"  href="#v-pills-renewProduct">Renew Product</a>
+                    <a class="dropdown-item" data-toggle="pill"  href="#v-pills-removeProduct">Remove Product</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle py-3" id="v-pills-profile-tab" data-toggle="dropdown" href="#" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="v-pills-profile" aria-selected="false">Contract</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-newContract">New Contract</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-renewContract">Renew Contract</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-payment">Payment</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-completeContract">Complete Contract</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-terminateContract">Terminate Contract</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle py-3" id="v-pills-profile-tab" data-toggle="dropdown" href="#" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="v-pills-profile" aria-selected="false">Purchase</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-buy">Buy</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-invoice">Invoice</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle py-3" id="v-pills-profile-tab" data-toggle="dropdown" href="#" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="v-pills-profile" aria-selected="false">Users</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-addUser">Add User</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-updateUser">Update User</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-removeUser">Remove User</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle py-3" id="v-pills-profile-tab" data-toggle="dropdown" href="#" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="v-pills-profile" aria-selected="false">Database</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-generateDatabase">Generate Database</a>
+                      <a class="dropdown-item" data-toggle="pill"  href="#v-pills-updateDatabase">Update Database</a>
+                  </li>
+              </ul>
+              
+        </div>
+        <div class="col-md-10">
+            <div class="tab-content" id="v-pills-tabContent">
+                <!--Dashboard content-->
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <h2 class="text-dark text-center mt-3">Dashboard</h2>
+                    <div class="row">
+                        <!--Total customers-->
+                        <div class="col-md-4 my-3">
+                            <div class="card border-dark text-center">
+                                <div class="card-header text-dark text-center">
+                                  Customers
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">TOTAL</h5>
+                                  <p class="card-text">58</p>
+                                  <a class="btn btn-primary">Show</a>
+                                </div>
+                            </div>
+                              
+                        </div>
+
+                        <!--Paid customers-->
+                        <div class="col-md-4 my-3">
+                            <div class="card border-dark text-center">
+                                <div class="card-header text-dark text-center">
+                                  Paid Customers
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">TOTAL</h5>
+                                  <p class="card-text">20</p>
+                                  <a class="btn btn-primary">Show</a>
+                                </div>
+                              </div>
+                              
+                        </div>
+
+                        <!--Owing customers-->
+                        <div class="col-md-4 my-3">
+                            <div class="card border-dark text-center">
+                                <div class="card-header text-dark text-center">
+                                  Customers Owing
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">TOTAL</h5>
+                                  <p class="card-text">38</p>
+                                  <a class="btn btn-primary">Show</a>
+                                </div>
+                              </div>
+                              
+                        </div>
+
+                        <!--Total products-->
+                        <div class="col-md-4 my-3">
+                            <div class="card border-dark text-center">
+                                <div class="card-header text-dark text-center">
+                                  Products
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">TOTAL</h5>
+                                  <p class="card-text">20</p>
+                                  <a class="btn btn-primary">Show</a>
+                                </div>
+                              </div>
+                              
+                        </div>
+
+                        <!--Payment to be received of the day-->
+                        <div class="col-md-4 my-3">
+                            <div class="card border-dark text-center">
+                                <div class="card-header text-dark text-center">
+                                  Daily payment
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">TUESDAY</h5>
+                                  <p class="card-text">10</p>
+                                  <a class="btn btn-primary">Show</a>
+                                </div>
+                              </div>
+                              
+                        </div>
+
+                        <!--System users-->
+                        <div class="col-md-4 my-3">
+                            <div class="card border-dark text-center">
+                                <div class="card-header text-dark text-center">
+                                  System Users
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">USERS</h5>
+                                  <p class="card-text">2</p>
+                                  <a class="btn btn-primary">Show</a>
+                                </div>
+                              </div>
+                              
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Product New Product content-->
+                <div class="tab-pane fade" id="v-pills-newProduct" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="newProduct">
+                        <h2 class="text-primary">New Product</h2>
+                        <!--Product entry form-->
+                        <form id="productEntry">
+                            <div id="errorMessage">
+
+                            </div>
+                            <div class="row mx-4">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <p class="text-center">
+                                            <small>Item One</small>
+                                        </p>
+                                        <label class="text-dark text-center display-5" for="serialInput">Serial number</label>
+                                        <input type="number" name="serial[]" placeholder="Serial no." id="serialInput" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center display-5" for="itemDescription">Item Description</label>
+                                        <textarea name="itemDescription[]" placeholder="Enter Item Description here" cols="10" rows="10" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center" for="price">Price</label>
+                                        <input type="number" name="price[]" placeholder="0.00" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center" for="quantity">Quantity</label>
+                                        <input type="number" name="quantity[]" placeholder="Quantity" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <p class="text-center">
+                                            <small>Item Two</small>
+                                        </p>
+                                        <label class="text-dark text-center display-5" for="serial">Serial number</label>
+                                        <input type="number" name="serial[]" placeholder="Serial no." class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center display-5" for="itemDescription">Item Description</label>
+                                        <textarea name="itemDescription[]" placeholder="Enter Item Description here" cols="10" rows="10" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center" for="price">Price</label>
+                                        <input type="number" name="price[]" placeholder="0.00" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center" for="quantity">Quantity</label>
+                                        <input type="number" name="quantity[]" placeholder="Quantity" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <p class="text-center">
+                                            <small>Item Three</small>
+                                        </p>
+                                        <label class="text-dark text-center display-5" for="serial">Serial number</label>
+                                        <input type="number" name="serial[]" placeholder="Serial no." class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center display-5" for="itemDescription">Item Description</label>
+                                        <textarea name="itemDescription[]" placeholder="Enter Item Description here" cols="10" rows="10" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center" for="price">Price</label>
+                                        <input type="number" name="price[]" placeholder="0.00" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-dark text-center" for="quantity">Quantity</label>
+                                        <input type="number" name="quantity[]" placeholder="Quantity" class="form-control">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-outline-dark ml-2">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--Product New Product generate content-->
+                <div class="tab-pane fade" id="v-pills-newProduct" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="newProduct">
+                        <h1>New Product content generated</h1>
+                    </div>
+                </div>
+
+                <!--Product renew Product content-->
+                <div class="tab-pane fade" id="v-pills-renewProduct" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="updateProduct">
+                        <b>Search the product you want to update</b>
+                        <form class="form-inline mt-5 ml-5" id="searchProduct">
+                            <div class="form-group">
+                                <input type="number" name="search" placeholder="Enter product serial number" class="form-control mr-md-6" aria-label="Search" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark ml-3">Search Product</button>
+                        </form>
+                        <div id="productInfo" class="mt-5 ml-5">
+
+                        </div>
+                    </div>
+                </div>
+                <!--Product remove Product content-->
+                <div class="tab-pane fade" id="v-pills-removeProduct" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="removeProduct">
+                        <b class="mt-5 ml-5">Search the product you want to remove</b>
+                        <form class="form-inline mt-5 ml-5" id="removeSearch">
+                            <div class="form-group">
+                                <input type="number" name="search" placeholder="Enter product serial number" class="form-control mr-md-6" aria-label="Search" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark ml-3">Search Product</button>
+                        </form>
+                        <div id="removeProdInfo" class="mt-5 ml-5">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="productDisplay">
+                    
+                </div>
+
+                <!--Contract New Contract content-->
+                <div class="tab-pane fade" id="v-pills-newContract" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="newContract" class="mt-3">
+                        <form id="contractForm">
+                            <div class="h4 text-info ml-5">
+                                <small>Enter customer's information</small>
+                            </div>
+                            <div class="row mx-4">
+                                <div class="offset-md-2">
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="clientId">Client ID:</label>
+                                        <input type="number" name="clientid" id="clientId" required placeholder="Enter Client ID" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="clientName">Customer Name:</label>
+                                        <input type="text" name="clientname" id="clientName" required placeholder="Enter customer name..." class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="clientNumber">Customer Number:</label>
+                                        <input type="number" name="clientnumber" id="clientNumber" required placeholder="Enter customer number.." class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="witnessName">Witness Name:</label>
+                                        <input type="text" name="witnessname" id="witnessName" required class="form-control" placeholder="Enter witness name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">                                   
+                                    <div class="form-group">
+                                        <label for="clientResidence">Residential Area:</label>
+                                        <input type="text" name="residence" id="clientResidence" required placeholder="Enter customer residence..." class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="clientLandmark">Landmark:</label>
+                                        <input type="text" name="landmark" id="clientLandmark"required placeholder="Enter customer's landmark..." class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="clientLocation">Location:</label>
+                                        <input type="text" name="location" id="clientLocation" required placeholder="Enter customer's location..." class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="witnessNumber">Witness Number:</label>
+                                        <input type="number" name="witnessnumber" id="witnessNumber" required class="form-control" placeholder="Enter witness number">
+                                    </div>
+                                </div>
+                                <div class="offset-md-2">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="offset-md-5"></div>
+                                <div class="col-md-2 ml-2">
+                                    <button type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
+                                </div>
+                                <div class="offset-md-5"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Contract renew Contract content-->
+                <div class="tab-pane fade" id="v-pills-renewContract" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Renew Contract</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+                <!--Contract Pay Contract content-->
+                <div class="tab-pane fade" id="v-pills-payment" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Payment</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+
+                <!--Contract Complete Contract content-->
+                <div class="tab-pane fade" id="v-pills-completeContract" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Complete Contract</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+
+                <!--Contract terminate Contract content-->
+                <div class="tab-pane fade" id="v-pills-terminateContract" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Terminate Contract</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+
+                <!--Purchase buy Purchase content-->
+                <div class="tab-pane fade" id="v-pills-buy" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Buy</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+
+                <!--Purchase invoice Purchase content-->
+                <div class="tab-pane fade" id="v-pills-invoice" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Invoice</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+
+                <!--User add User content-->
+                <div class="tab-pane fade" id="v-pills-addUser" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="signupContainer">
+                        <form class="col-md-6 p-signup-form" id="signupForm">
+                            <div id="userReport"></div>
+                            <div class="form-group">
+                                <label class="l-signup-form" for="username">Username</label>
+                                <input type="text" name="username" placeholder="Username" class="form-control" required >
+                            </div>
+
+                            <div class="form-group">
+                                <label class="l-signup-form" for="password">Password</label>
+                                <input type="password" name="password" placeholder="Password" class="form-control" required>
+                                <small class="form-text">
+                                    Your password must be at least 8 characters and must not contain the word "password"
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="l-signup-form" for="repeat">Repeat</label>
+                                <input type="password" name="repeat" placeholder="Repeat password" class="form-control" required>
+                                <small class="form-text">
+                                    Your password must be at least 8 characters and must not contain the word "password"
+                                </small>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-dark">Continue</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!--User update User content-->
+                <div class="tab-pane fade" id="v-pills-updateUser" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="updateUser">
+                        <form class="col-md-6 p-signup-form" id="updateForm">
+                            <div id="updateReport"></div>
+                            <div class="form-group">
+                                <label class="l-signup-form" for="cUsername">Current username</label>
+                                <input type="text" name="cUsername" placeholder="Current username" class="form-control" required >
+                            </div>
+
+                            <div class="form-group">
+                                <label class="l-signup-form" for="nUsername">New username</label>
+                                <input type="text" name="nUsername" placeholder="New Username" class="form-control" required >
+                            </div>
+
+                            <div class="form-group">
+                                <label class="l-signup-form" for="password">Password</label>
+                                <input type="password" name="password" placeholder="Password" class="form-control" required>
+                                <small class="form-text">
+                                    Your password must be at least 8 characters and must not contain the word "password"
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="l-signup-form" for="repeat">Repeat</label>
+                                <input type="password" name="repeat" placeholder="Repeat password" class="form-control" required>
+                                <small class="form-text">
+                                    Your password must be at least 8 characters and must not contain the word "password"
+                                </small>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-dark">Update User</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!--User remove User content-->
+                <div class="tab-pane fade" id="v-pills-removeUser" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div id="removeUser">
+                        <form class="form-inline mt-5 ml-5" id="searchUser">
+                            <div class="form-group">
+                                <input type="search" name="search" placeholder="User to be removed" class="form-control mr-md-6" aria-label="Search" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark ml-3">Search User</button>
+                        </form>
+                        <div id="userInfo" class="mt-5 ml-5">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--Database generate Database content-->
+                <div class="tab-pane fade" id="v-pills-generateDatabase" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Generate Database</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+
+                <!--Database update Database content-->
+                <div class="tab-pane fade" id="v-pills-updateDatabase" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <h2 class="text-success">Update Database</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam incidunt adipisci est ab,
+                     sapiente maxime deleniti vitae iure a consequuntur minus voluptatibus quas quod autem, 
+                     laboriosam obcaecati laudantium fugit. Odit explicabo consectetur consequuntur perferendis 
+                     veniam nesciunt doloribus labore iure in.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/pos-functions.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
